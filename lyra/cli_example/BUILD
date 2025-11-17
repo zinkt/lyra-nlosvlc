@@ -148,3 +148,14 @@ cc_binary(
         "@gulrak_filesystem//:filesystem",
     ],
 )
+
+cc_binary(
+    name = "realtime_demo",
+    srcs = ["realtime_demo.cc"],
+    deps = [
+        "//lyra:lyra_encoder",
+        "//lyra:lyra_decoder",
+        "//lyra:lyra_config",
+        "@portaudio_local//:portaudio",  # 使用本地PortAudio
+    ],
+)

@@ -97,7 +97,7 @@ git_repository(
 )
 # Dependency for glog
 git_repository(
-    name = "com_github_gflags_gflags",
+    name = "gflags",
     remote = "https://github.com/mchinen/gflags.git",
     branch = "android_linking_fix"
 )
@@ -190,3 +190,21 @@ load("@org_tensorflow//tensorflow:workspace2.bzl", workspace2 = "workspace")
 workspace2()
 
 # End Tensorflow WORKSPACE subset required for TFLite
+
+######################################
+# Local PortAudio for macOS (Homebrew)
+######################################
+
+new_local_repository(
+    name = "portaudio_local",
+    path = "/opt/homebrew",  # 你的 brew 默认安装路径
+    build_file_content = """
+cc_library(
+    name = "portaudio",
+    hdrs = glob(["include/**/*.h"]),
+    includes = ["include"],
+    linkopts = ["-L/opt/homebrew/lib", "-lportaudio"],
+    visibility = ["//visibility:public"],
+)
+""",
+)
