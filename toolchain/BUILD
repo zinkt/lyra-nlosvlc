@@ -28,6 +28,7 @@ cc_toolchain(
 cc_toolchain_suite(
     name = "clang_suite",
     toolchains = {
+        "darwin_arm64": ":k8_toolchain",
         "k8": ":k8_toolchain",
     },
 )

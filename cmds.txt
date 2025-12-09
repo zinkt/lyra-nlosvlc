@@ -1,0 +1,2 @@
+bazel build -c opt lyra/cli_example:realtime_demo // -c opt 优化模式
+bazel run @hedron_compile_commands//:refresh_all

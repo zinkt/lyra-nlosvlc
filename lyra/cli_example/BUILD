@@ -159,3 +159,25 @@ cc_binary(
         "@portaudio_local//:portaudio",  # 使用本地PortAudio
     ],
 )
+
+cc_binary(
+    name = "realtime_sender",
+    srcs = ["realtime_sender.cc"],
+    deps = [
+        "//lyra:lyra_encoder",
+        "//lyra:lyra_decoder",
+        "//lyra:lyra_config",
+        "@portaudio_local//:portaudio",  # 使用本地PortAudio
+    ],
+)
+
+cc_binary(
+    name = "realtime_receiver",
+    srcs = ["realtime_receiver.cc"],
+    deps = [
+        "//lyra:lyra_encoder",
+        "//lyra:lyra_decoder",
+        "//lyra:lyra_config",
+        "@portaudio_local//:portaudio",  # 使用本地PortAudio
+    ],
+)
